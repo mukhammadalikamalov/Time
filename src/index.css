@@ -1,181 +1,65 @@
-.main-container {
+.searchBox {
   display: flex;
-  justify-content: center;
-  height: 100vh;
-  flex-wrap: wrap;
+  max-width: 230px;
   align-items: center;
-}
-
-.card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  /* Set the width of the card */
-  height: 400px;
-  /* Set the height of the card */
-  background: url('https://static.vecteezy.com/system/resources/thumbnails/011/208/814/small/technology-background-analog-clock-time-vector.jpg');
-  /* Set the background color of the card */
-  border-radius: 10px;
-  /* Add rounded corners to the card */
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  /* Add shadow to the card */
-}
-
-.card-content {
-  text-align: center;
-  font-family: Arial, sans-serif;
-  /* Example font family */
-}
-
-.current-time {
-  font-size: 24px;
-  /* Example font size */
-  font-weight: bold;
-  /* Example font weight */
-}
-
-.time {
-  font-size: 20px;
-  /* Example font size */
-  font-style: italic;
-  /* Example font style */
-}
-
-.watch-logo {
-  width: 100px;
-  /* Set the width of the watch logo */
-  height: 100px;
-  /* Set the height of the watch logo */
-  margin-bottom: 20px;
-  /* Add some spacing below the watch logo */
-}
-
-button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-.face {
+  justify-content: space-between;
+  gap: 8px;
+  background: #2f3640;
+  border-radius: 50px;
   position: relative;
-  width: 180px;
-  height: 180px;
+}
+
+.searchButton {
+  color: white;
+  position: absolute;
+  right: 8px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  outline: 10px solid #333;
-  background: repeating-radial-gradient(circle at 50% 50%,
-      rgba(200, 200, 200, .2) 0%, rgba(200, 200, 200, .2) 2%,
-      transparent 2%, transparent 3%, rgba(200, 200, 200, .2) 3%,
-      transparent 3%), conic-gradient(white 0%, silver 10%,
-      white 35%, silver 45%, white 60%, silver 70%,
-      white 80%, silver 95%, white 100%);
-  box-shadow: inset 0 0 20px #0007;
-  margin-left: 22px;
+  background: var(--gradient-2, linear-gradient(90deg, #2AF598 0%, #009EFD 100%));
+  border: 0;
+  display: inline-block;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
 }
 
-.hour {
-  position: absolute;
-  width: 5px;
-  height: 60px;
-  background: #aaa;
-  left: 87.5px;
-  top: 43px;
-  border-radius: 3px 3px 1px 1px;
-  transform-origin: 2px 47px;
-  box-shadow: 0 0 5px #0005, inset 1.5px 3px 0px #333, inset -1.5px -3px 0px #333;
-  z-index: 1;
-  animation: watch 43200s linear infinite;
+/* Hover effect */
+.searchButton:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+  transform: translateY(-3px);
 }
 
-.minute {
-  position: absolute;
-  width: 4px;
-  height: 78px;
-  background: #aaa;
-  left: 88px;
-  top: 25px;
-  border-radius: 3px 3px 1px 1px;
-  transform-origin: 2px 65px;
-  box-shadow: 0 0 5px #0005, inset 1.5px 3px 0px #333, inset -1.5px -3px 0px #333;
-  z-index: 2;
-  animation: watch 3600s linear infinite;
+/* Button pressing effect */
+.searchButton:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 
-.second {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: red;
-  left: 85px;
-  top: 85px;
-  border-radius: 50%;
-  border: 1px solid #eee;
-  z-index: 3;
-  animation: watch 60s steps(60, end) 0s infinite;
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  padding: 24px 46px 24px 26px;
 }
 
-.second::before {
-  content: "";
-  position: absolute;
-  width: 1px;
-  height: 85px;
-  left: 3px;
-  bottom: -10px;
-  background: red;
-  border-radius: 2px;
-  box-shadow: 5px 0 2px rgba(128, 128, 128, 0.2);
+.userCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.second::after {
-  content: "";
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  left: 2px;
-  top: 2px;
-  background: #555;
-  border-radius: 50%;
-}
-
-.v-index {
-  position: absolute;
-  color: #333;
-  font-size: 24px;
-  left: 83.5px;
-  top: -3px;
-  text-shadow: 0 157px 0 #333;
-  z-index: 1
-}
-
-.h-index {
-  position: absolute;
-  color: #333;
-  font-size: 24px;
-  top: 72px;
-  left: 5px;
-  transform: rotate(-90deg);
-  text-shadow: 0 158px 0 #333;
-  z-index: 1;
-}
-
-@keyframes watch {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+.cardContainer {
+  background-color: #5a5d46;
+  /* Old money color */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  width: 300px;
+  max-width: 80%;
+  text-align: center;
 }
